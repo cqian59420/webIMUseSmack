@@ -101,11 +101,19 @@
         </dependency>
 
 
-        <!--spring 4.1 起不再使用jackson-mapper-asl,改用jackson-databind-->
+        <!--spring 4.1 起不再使用jackson-mapper-asl,改用jackson-databind
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.5.1</version>
+        </dependency>
+        -->
+
+        <!-- Alibaba Fastjson框架,解决类嵌套解析问题-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.1.39</version>
         </dependency>
 
         <dependency>
@@ -113,6 +121,8 @@
             <artifactId>junit</artifactId>
             <version>4.10</version>
         </dependency>
+
+
     </dependencies>
 
     <!--<build>

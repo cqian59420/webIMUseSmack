@@ -13,9 +13,30 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven>
+        <mvc:message-converters register-defaults="true">
+            <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>text/html;charset=UTF-8</value>
+                        <value>application/json</value>
+                    </list>
+                </property>
+                <property name="features">
+                    <list>
+                        <value>WriteMapNullValue</value>
+                        <value>QuoteFieldNames</value>
+                    </list>
+                </property>
+                <property name="charset">
+                    <value>UTF-8</value>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 
     <!--按照servlet默认的静态文件类型配置js、css等静态文件不通过spring mvc 过滤器-->
     <mvc:default-servlet-handler/>
+
 
 </beans>

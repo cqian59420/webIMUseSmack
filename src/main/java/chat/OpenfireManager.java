@@ -45,7 +45,7 @@ public class OpenfireManager {
         }
     }
 
-    public static AbstractXMPPConnection getConnection(CharSequence userName,String pass) throws ChatConnectionException {
+    public static AbstractXMPPConnection getConnection(CharSequence userName, String pass) throws ChatConnectionException {
 
         /*CharSequence userName = "ccc";
         String pass = "012342";*/
@@ -84,15 +84,15 @@ public class OpenfireManager {
         }
     }
 
-    public static Roster getRoster(AbstractXMPPConnection connection) throws ChatConnectionException,ChatLogginException {
+    public static Roster getRoster(AbstractXMPPConnection connection) throws ChatConnectionException, ChatLogginException {
         Roster roster = Roster.getInstanceFor(connection);
         if (!roster.isLoaded()) {
             try {
                 roster.reloadAndWait();
             } catch (SmackException.NotLoggedInException e) {
-               throw new ChatLogginException(e);
+                throw new ChatLogginException(e);
             } catch (SmackException.NotConnectedException e) {
-               throw new ChatConnectionException(e);
+                throw new ChatConnectionException(e);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -115,7 +115,7 @@ public class OpenfireManager {
 
             @Override
             public void presenceChanged(Presence presence) {
-                logger.info(presence.getStatus()+"发生改变");
+                logger.info(presence.getStatus() + "发生改变");
             }
         });
         logger.info("roster的数目为" + roster.getEntries().size());
